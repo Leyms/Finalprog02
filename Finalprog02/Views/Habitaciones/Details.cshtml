@@ -1,0 +1,42 @@
+﻿@model Finalprog02.Models.ClassHabitaciones
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ClassHabitaciones</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Num_Habitacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Num_Habitacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tipo_Habitacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tipo_Habitacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrecioDia_Habitacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrecioDia_Habitacion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Habitacion }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
