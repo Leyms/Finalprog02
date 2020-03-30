@@ -130,6 +130,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ClassAltas.cs" />
+    <Compile Include="Models\ClassCitas.cs" />
+    <Compile Include="Models\ClassHabitaciones.cs" />
+    <Compile Include="Models\ClassIngresos.cs" />
+    <Compile Include="Models\ClassMedicos.cs" />
+    <Compile Include="Models\ClassPacientes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -171,7 +177,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
