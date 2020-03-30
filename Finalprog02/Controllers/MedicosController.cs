@@ -20,6 +20,29 @@ namespace Finalprog02.Controllers
             return View(db.Medicos.ToList());
         }
 
+        [HttpPost]
+        public ActionResult Index(string busqueda, string select)
+        {
+
+            if (select == "Nombre_Medico")
+            {
+                var abc = from a in db.Medicos
+                          select a;
+                abc = abc.Where(s => s.Nombre_Medico.Contains(busqueda));
+                return View(abc);
+            }
+            else if (select == "Especialidad_Medico")
+            {
+                var abc = from a in db.Medicos
+                          where a.Especialidad_Medico == busqueda
+                          select a;
+
+                return View(abc);
+            }
+
+            return View(db.Medicos.ToList());
+
+        }
         // GET: Medicos/Details/5
         public ActionResult Details(int? id)
         {
