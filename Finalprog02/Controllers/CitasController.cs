@@ -20,6 +20,44 @@ namespace Finalprog02.Controllers
             var citas = db.Citas.Include(c => c.Medicos).Include(c => c.Pacientes);
             return View(citas.ToList());
         }
+        [HttpPost]
+        public ActionResult Index(string busqueda, string select)
+        {
+            if (busqueda == string.Empty)
+            {
+                var citas = db.Citas.Include(c => c.Medicos).Include(c => c.Pacientes);
+                return View(citas.ToList());
+            }
+            else if (select == string.Empty)
+            {
+                var citas = db.Citas.Include(c => c.Medicos).Include(c => c.Pacientes);
+                return View(citas.ToList());
+            }
+
+            else if (select == "Nombre_Medico")
+            {
+                int s = (from g in db.Medicos where g.Nombre_Medico == busqueda select g.ID_Medico).SingleOrDefault();
+               
+                var citas = db.Citas.Include(c => c.Medicos).Include(c => c.Pacientes).Where(a => a.ID_Medico.Equals(s));
+                return View(citas.ToList());
+
+            }
+            else if (select == "Nombre_Paciente")
+            {
+                int s = (from g in db.Pacientes where g.Nombre_Paciente == busqueda select g.ID_Paciente).SingleOrDefault();
+
+                var citas = db.Citas.Include(c => c.Medicos).Include(c => c.Pacientes).Where(a => a.ID_Paciente.Equals(s));
+                return View(citas.ToList());
+            }
+            else if (select == "Fecha_Cita")
+            {
+                var citas = db.Citas.Include(c => c.Medicos).Include(c => c.Pacientes).Where(a => a.Fecha_Cita == busqueda);
+                return View(citas.ToList());
+            }
+
+            return View(db.Citas.ToList());
+
+        }
 
         // GET: Citas/Details/5
         public ActionResult Details(int? id)
@@ -40,7 +78,7 @@ namespace Finalprog02.Controllers
         public ActionResult Create()
         {
             ViewBag.ID_Medico = new SelectList(db.Medicos, "ID_Medico", "Nombre_Medico");
-            ViewBag.ID_Paciente = new SelectList(db.Pacientes, "ID_Paciente", "Nombre_Paciente");
+            ViewBag.ID_Paciente = new SelectList(db.Pacientes, "ID_Paciente", "ID_Paciente");
             return View();
         }
 
