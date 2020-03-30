@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewBag.Title = "OpcionesGenerales";
+}
+
+
+<link href="Site.css" rel="stylesheet">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.6">
+    <title>Album example • Bootstrap</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/album/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="/docs/4.4/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="manifest" href="/docs/4.4/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="/docs/4.4/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+    <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon.ico">
+    <meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#563d7c">
+
+    <!-- Custom styles for this template -->
+    <link href="Site.css" rel="stylesheet">
+    <script>
+        $('.carousel').carousel()
+    </script>
+</head>
+
+
+<br />
+<br />
+<div class="nav" style="background-color: #e3f2fd;">
+    <nav class="navbar navbar-light bg-light" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" style="background-color: #e3f2fd;">
+            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+            <img src="~/imgfinall/logo2new.png" width="50" height="50" class="d-inline-block align-top" alt="">
+            OPCIONES GENERALES DEL SISTEMA
+            <img src="~/imgfinall/logo2new.png" width="50" height="50" class="d-inline-block align-top" alt="">
+        </a>
+    </nav>
+
+</div>
+
+<br />
+<br />
+
+<br />
+
+
+<div class="row mb-2">
+    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+    <div class="col-md-6">
+        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+
+                @*<h3 class="mb-0">Enterate de las últimas noticias</h3>*@
+                <strong class="d-inline-block mb-2 text-primary">MANTENIMIENTO</strong>
+                @*<div class="mb-1 text-muted">2020</div>*@
+                <p class="card-text mb-auto">Esta opcion te permite Registrar/Agregrar Pacientes, Médicos y Habitaciones.</p>
+                <div class="btn-group">
+                    <a href="/Home/VstMantenimientos" class="btn btn-success" style="background-color: #f48080;">REALIZAR </br>MANTENIMIENTO</a>
+                </div>
+                @*<a href="/Ley/Noticias" class="stretched-link">VER NOTICIAS</a>*@
+            </div>
+            <div class="col-auto d-none d-lg-block">
+
+                <img src="~/imgfinall/mantenimiento1.png" width="100" height="200" />
+            </div>
+        </div>
+    </div>
+    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+    <div class="col-md-6">
+        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-success">PROCESOS</strong>
+                @*<h3 class="mb-0">Ponte en el nuevo ritmo</h3>*@
+                <p class="mb-auto">Esta opcion te permite realizar Citas, Ingresos y Altas médicas. </p>
+                <div class="btn-group">
+                    <a href="/Home/VstProcesos" class="btn btn-success" style="background-color: #5dd295;">REALIZAR </br>PROCESOS</a>
+                </div>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+                <img src="~/imgfinall/procmed.jpg" width="100" height="200" />
+            </div>
+        </div>
+    </div>
+ 
+</div>

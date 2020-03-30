@@ -13,17 +13,18 @@ namespace Finalprog02.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult OpcionesGenerales()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult VstMantenimientos()
         {
-            ViewBag.Message = "Your contact page.";
+            return View();
+        }
 
+        public ActionResult VstProcesos()
+        {
             return View();
         }
     }
