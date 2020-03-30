@@ -138,6 +138,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ClassAltas.cs" />
+    <Compile Include="Models\ClassCContext.cs" />
     <Compile Include="Models\ClassCitas.cs" />
     <Compile Include="Models\ClassHabitaciones.cs" />
     <Compile Include="Models\ClassIngresos.cs" />
