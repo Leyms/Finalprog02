@@ -20,6 +20,37 @@ namespace Finalprog02.Controllers
             return View(db.Habitaciones.ToList());
         }
 
+        [HttpPost]
+        public ActionResult Index(string select)
+        {
+
+            if (select == "Doble")
+            {
+                var abc = from a in db.Habitaciones
+                          where a.Tipo_Habitacion == Tipo_Habitacion.Doble
+                          select a;
+                return View(abc);
+            }
+            else if (select == "Suite")
+            {
+                var abc = from a in db.Habitaciones
+                          where a.Tipo_Habitacion == Tipo_Habitacion.Suite
+                          select a;
+
+                return View(abc);
+            }
+            else if (select == "privada")
+            {
+                var abc = from a in db.Habitaciones
+                          where a.Tipo_Habitacion == Tipo_Habitacion.privada
+                          select a;
+
+                return View(abc);
+            }
+
+            return View(db.Habitaciones.ToList());
+
+        }
         // GET: Habitaciones/Details/5
         public ActionResult Details(int? id)
         {
