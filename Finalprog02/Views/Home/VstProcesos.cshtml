@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewBag.Title = "VstProcesos";
+}
+
+
+<link href="Site.css" rel="stylesheet">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.6">
+    <title>Album example • Bootstrap</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/album/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="/docs/4.4/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="manifest" href="/docs/4.4/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="/docs/4.4/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+    <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon.ico">
+    <meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#563d7c">
+
+    <!-- Custom styles for this template -->
+    <link href="Site.css" rel="stylesheet">
+    <script>
+        $('.carousel').carousel()
+    </script>
+</head>
+<br />
+<br />
+<div class="nav" style="background-color: #e3f2fd;">
+    <nav class="navbar navbar-light bg-light" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" style="background-color: #e3f2fd;">
+            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+            <img src="~/imgfinall/logo2new.png" width="50" height="50" class="d-inline-block align-top" alt="">
+            SELECCIONE LA OPCION QUE DESEA REALIZAR
+            <img src="~/imgfinall/logo2new.png" width="50" height="50" class="d-inline-block align-top" alt="">
+        </a>
+    </nav>
+
+</div>
+
+<div class="album py-5 bg-light">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm" style="background-color: #f3e8e8;">
+                    <img src="~/imgfinall/citamedica.jpg" width="100%" height="225" />
+                    <div class="card-body">
+                        <h4>Citas Medicas</h4>
+                        <p class="card-text">Esta opcion le permite agendar al paciente una cita con su respectiva fecha y hora correspondiente.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a href="~/Citas/Create" class="btn btn-info" style="background-color: #b40909;">Crear Cita</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm" style="background-color: #f3e8e8;">
+                    <img src="~/imgfinall/internamiento.jpg" width="100%" height="225" />
+                    <div class="card-body">
+                        <h4>Ingresos Internamiento</h4>
+                        <p class="card-text">Esta opcion te permite asignarle una  habitcacion y dar inicio al internamiento.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a href="~/Ingresos/Create" class="btn btn-warning" style="background-color: #fdbc30;">Registrar Ingresos</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm" style="background-color: #f3e8e8;">
+                    <img src="~/imgfinall/AltaMedica.jpg" width="100%" height="225" />
+                    <div class="card-body">
+                        <h4>Altas medicas</h4>
+                        <p class="card-text">En esta opcion te permite dar de Alta al paciente y verificar el costo total del internamiento.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a href="~/Altas/Create" class="btn btn-success" style="background-color: darkcyan;">Realizar Alta</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
