@@ -8,6 +8,9 @@ namespace Finalprog02.Models
 {
     public class ClassCContext:DbContext
     {
+        public ClassCContext()
+            : base("CadenCClinica")
+        { }
         public DbSet<ClassPacientes> Pacientes { get; set; }
         public DbSet<ClassMedicos> Medicos { get; set; }
         public DbSet<ClassHabitaciones> Habitaciones { get; set; }
