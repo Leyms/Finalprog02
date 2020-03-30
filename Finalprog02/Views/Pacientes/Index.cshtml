@@ -6,9 +6,41 @@
 
 <h2>Index</h2>
 
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+
+<br />
+<br />
+
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @*@Html.ActionLink("Create New", "Create")*@
+    @*@Html.ActionLink("Impresion", "imprimir")*@
+    <a href="@Url.Action("Create", "Pacientes")" class="btn btn-success">Crear uno nuevo</a>
+    <a href="@Url.Action("imprimir", "Pacientes")" class="btn btn-danger">Convertir a PDF</a>
 </p>
+<p>
+    @using (Html.BeginForm("Index", "Pacientes", FormMethod.Post))
+    {
+        <div style="margin: 0 auto;">
+            <h5>Busquedas</h5>
+            <div class="row">
+                @Html.TextBox("busqueda", "", new { @class = "form-control mb-2", placeholder = "Buscar" })
+                <select name="select" class="form-control mb-2">
+                    <option value="">Elige una opcion</option>
+                    <option value="Nombre_Paciente">Nombre</option>
+                    <option value="Cedula_Paciente">Cedula</option>
+                    <option value="Asegurado">Asegurado</option>
+                </select>
+                <div class="col-2">
+                    <button type="submit" class="btn btn-success">✔️</button>
+                </div>
+            </div>
+        </div>
+    }
+</p>
+<br />
+
 <table class="table">
     <tr>
         <th>
@@ -23,23 +55,24 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre_Paciente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cedula_Paciente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Asegurado)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_Paciente }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_Paciente }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_Paciente })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre_Paciente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cedula_Paciente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Asegurado)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID_Paciente }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID_Paciente }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID_Paciente })
+            </td>
+        </tr>
+    }
 
 </table>

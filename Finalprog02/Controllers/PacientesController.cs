@@ -20,6 +20,50 @@ namespace Finalprog02.Controllers
             return View(db.Pacientes.ToList());
         }
 
+        [HttpPost]
+        public ActionResult Index(string busqueda, string select)
+        {
+            if (select == "Nombre_Paciente")
+            {
+                var abc = from a in db.Pacientes
+                              //where a.Nombre_Paciente == busqueda
+                          select a;
+                abc = abc.Where(s => s.Nombre_Paciente.Contains(busqueda));
+                return View(abc);
+            }
+            else if (select == "Cedula_Paciente")
+            {
+                var abc = from a in db.Pacientes
+                          where a.Cedula_Paciente == busqueda
+                          select a;
+
+                return View(abc);
+            }
+            else if (select == "Asegurado")
+            {
+                if (busqueda == "si" || busqueda == "Si" || busqueda == "SI" || busqueda == "sI")
+                {
+                    var abc = from a in db.Pacientes
+                              where a.Asegurado.Equals(true)
+                              select a;
+
+                    return View(abc);
+                }
+                else if (busqueda == "No" || busqueda == "NO" || busqueda == "nO" || busqueda == "no")
+                {
+                    var abc = from a in db.Pacientes
+                              where a.Asegurado.Equals(false)
+                              select a;
+
+                    return View(abc);
+                }
+
+            }
+
+
+            return View(db.Pacientes.ToList());
+
+        }
         // GET: Pacientes/Details/5
         public ActionResult Details(int? id)
         {
