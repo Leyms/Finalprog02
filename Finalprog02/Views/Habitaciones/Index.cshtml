@@ -4,13 +4,11 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<br />
+<br />
 
 <p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<p>
-   <a href="@Url.Action("Create", "Habitaciones")" class="btn btn-success">Crear uno nuevo</a>
+    <a href="@Url.Action("Create", "Habitaciones")" class="btn btn-success">Crear uno nuevo</a>
     <a href="@Url.Action("imprimir", "Habitaciones")" class="btn btn-danger">Convertir a PDF</a>
 </p>
 
