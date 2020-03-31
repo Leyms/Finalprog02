@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Finalprog02.Models;
+using Rotativa;
 
 namespace Finalprog02.Controllers
 {
@@ -18,6 +19,11 @@ namespace Finalprog02.Controllers
         public ActionResult Index()
         {
             return View(db.Habitaciones.ToList());
+        }
+        public ActionResult imprimir()
+        {
+            var print = new ActionAsPdf("Index");
+            return print;
         }
 
         [HttpPost]
