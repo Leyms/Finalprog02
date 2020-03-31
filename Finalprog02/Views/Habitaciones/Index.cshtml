@@ -50,22 +50,32 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Num_Habitacion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tipo_Habitacion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PrecioDia_Habitacion)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID_Habitacion }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID_Habitacion }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID_Habitacion })
-            </td>
-        </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Num_Habitacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tipo_Habitacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrecioDia_Habitacion)
+        </td>
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID_Habitacion }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID_Habitacion }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID_Habitacion })
+        </td>*@
+        <td class="btn btn-primary myBtn">
+            @Html.ActionLink("Editar", "Edit", new { id = item.ID_Habitacion })
+        </td>
+        <td class="btn btn-danger myBtn">
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.ID_Habitacion })
+        </td>
+        <td class="btn btn-success myBtn">
+            @Html.ActionLink("Detalles", "Details", new { id = item.ID_Habitacion })
+        </td>
+    </tr>
+        
     }
 
 </table>

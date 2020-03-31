@@ -61,11 +61,15 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Especialidad_Medico)
             </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID_Medico }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID_Medico }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID_Medico })
-            </td>
+             <td class="btn btn-primary myBtn">
+            @Html.ActionLink("Editar", "Edit", new { id = item.ID_Medico })
+        </td>
+        <td class="btn btn-danger myBtn">
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.ID_Medico })
+        </td>
+        <td class="btn btn-success myBtn">
+            @Html.ActionLink("Detalles", "Details", new { id = item.ID_Medico })
+        </td>
         </tr>
     }
 
