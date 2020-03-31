@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Finalprog02.Models;
+using Rotativa;
 
 namespace Finalprog02.Controllers
 {
@@ -19,6 +20,11 @@ namespace Finalprog02.Controllers
         {
             var ingresos = db.Ingresos.Include(c => c.Habitacion).Include(c => c.Pacientes);
             return View(ingresos.ToList());
+        }
+        public ActionResult imprimir()
+        {
+            var print = new ActionAsPdf("Index");
+            return print;
         }
         [HttpPost]
         public ActionResult Index(string busqueda, string select)
