@@ -21,6 +21,42 @@ namespace Finalprog02.Controllers
             return View(altas.ToList());
         }
 
+        [HttpPost]
+        public ActionResult Index(string busqueda, string select)
+        {
+            if (busqueda == string.Empty)
+            {
+                var altas = db.Altas.Include(c => c.Ingresos);
+                return View(altas.ToList());
+            }
+            else if (select == string.Empty)
+            {
+                var altas = db.Altas.Include(c => c.Ingresos);
+                return View(altas.ToList());
+            }
+
+
+            else if (select == "Paciente")
+            {
+                var altas = db.Altas.Include(c => c.Ingresos).Where(a => a.Nombre_Paciente == busqueda);
+                return View(altas.ToList());
+                //var abc = from a in db.Altas
+                //          where a.Nombre_Paciente == busqueda
+                //          select a;
+
+                //return View(abc);
+            }
+            else if (select == "Fecha")
+            {
+                var altas = db.Altas.Include(c => c.Ingresos).Where(a => a.Fecha_Salida == busqueda);
+                return View(altas.ToList());
+                //var citas = db.Citas.Include(c => c.Medicos).Include(c => c.Pacientes).Where(a => a.Fecha_Cita == busqueda); ;
+                //return View(citas.ToList());
+            }
+
+            return View(db.Altas.ToList());
+
+        }
         // GET: Altas/Details/5
         public ActionResult Details(int? id)
         {
@@ -39,7 +75,7 @@ namespace Finalprog02.Controllers
         // GET: Altas/Create
         public ActionResult Create()
         {
-            ViewBag.ID_Ingreso = new SelectList(db.Ingresos, "ID_Ingresos", "Fecha_Ingreso");
+            ViewBag.ID_Ingreso = new SelectList(db.Ingresos, "ID_Ingresos", "ID_Ingresos");
             return View();
         }
 
@@ -127,6 +163,49 @@ namespace Finalprog02.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        [HttpPost]
+
+        public JsonResult Nombre(int clavePaciente)
+        {
+            var duplicado = (from i in db.Ingresos
+                             join p in db.Pacientes
+                             on i.ID_Paciente equals p.ID_Paciente
+                             where i.ID_Ingresos == clavePaciente
+                             select p.Nombre_Paciente).ToList();
+            return Json(duplicado);
+        }
+
+        public JsonResult Monto(int clavePaciente)
+        {
+
+            var duplicado = (from i in db.Ingresos
+                             join h in db.Habitaciones
+                             on i.ID_Habitacion equals h.ID_Habitacion
+                             where i.ID_Ingresos == clavePaciente
+                             select h.PrecioDia_Habitacion).ToList();
+            return Json(duplicado);
+        }
+
+        public JsonResult FechaIngreso(int clavePaciente)
+        {
+
+            var duplicado = (from i in db.Ingresos
+                             where i.ID_Ingresos == clavePaciente
+                             select i.Fecha_Ingreso).ToList();
+            return Json(duplicado);
+        }
+
+        public JsonResult NumeroHabitacion(int clavePaciente)
+        {
+
+            var duplicado = (from i in db.Ingresos
+                             join h in db.Habitaciones
+                             on i.ID_Habitacion equals h.ID_Habitacion
+                             where i.ID_Ingresos == clavePaciente
+                             select h.Num_Habitacion).ToList();
+            return Json(duplicado);
         }
     }
 }
