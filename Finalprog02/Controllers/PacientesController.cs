@@ -21,7 +21,7 @@ namespace Finalprog02.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(string busqueda, string select)
+        public ActionResult Index(string busqueda, string select , string PressBoton)
         {
             if (select == "Nombre_Paciente")
             {
@@ -39,27 +39,40 @@ namespace Finalprog02.Controllers
 
                 return View(abc);
             }
-            else if (select == "Asegurado")
+            //else if (select == "Asegurado")
+            //{
+            //    if (busqueda == "si" || busqueda == "Si" || busqueda == "SI" || busqueda == "sI")
+            //    {
+            //        var abc = from a in db.Pacientes
+            //                  where a.Asegurado.Equals(true)
+            //                  select a;
+
+            //        return View(abc);
+            //    }
+            //    else if (busqueda == "No" || busqueda == "NO" || busqueda == "nO" || busqueda == "no")
+            //    {
+            //        var abc = from a in db.Pacientes
+            //                  where a.Asegurado.Equals(false)
+            //                  select a;
+
+            //        return View(abc);
+            //    }
+
+            //}
+            else if (PressBoton == "Asegurado")
             {
-                if (busqueda == "si" || busqueda == "Si" || busqueda == "SI" || busqueda == "sI")
-                {
-                    var abc = from a in db.Pacientes
-                              where a.Asegurado.Equals(true)
-                              select a;
-
-                    return View(abc);
-                }
-                else if (busqueda == "No" || busqueda == "NO" || busqueda == "nO" || busqueda == "no")
-                {
-                    var abc = from a in db.Pacientes
-                              where a.Asegurado.Equals(false)
-                              select a;
-
-                    return View(abc);
-                }
-
+                var abc = from a in db.Pacientes
+                          where a.Asegurado.Equals(true)
+                          select a;
+                return View(abc);
             }
-
+            else if (PressBoton == "No Asegurado")
+            {
+                var abc = from a in db.Pacientes
+                          where a.Asegurado.Equals(false)
+                          select a;
+                return View(abc);
+            }
 
             return View(db.Pacientes.ToList());
 
