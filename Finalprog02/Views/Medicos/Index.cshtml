@@ -4,17 +4,15 @@
     ViewBag.Title = "Index";
 }
 
-@*<h2>Index</h2>
+<br />
+<br />
 
 <p>
-    @Html.ActionLink("Create New", "Create")
-</p>*@
-<p>
-    @*@Html.ActionLink("Create New", "Create")*@
-    @*@Html.ActionLink("Impresion", "imprimir")*@
     <a href="@Url.Action("Create", "Medicos")" class="btn btn-success">Crear uno nuevo</a>
-    <a href="@Url.Action("imprimir", "Medicos")" class="btn btn-danger">Convertir a PDF</a>
+    <a href="@Url.Action("imprimir", "Medicos")" class="btn btn-danger">PDF</a>
 </p>
+ 
+
 <p>
     @using (Html.BeginForm("Index", "Medicos", FormMethod.Post))
     {
