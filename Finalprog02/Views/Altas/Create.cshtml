@@ -156,15 +156,25 @@
             return yyyy + '-' + mm + '-' + dd;
         }*/
         console.log(generaMonto())
-
         function generaMonto(data) {
-            var fechaf = $("#Fecha_Salida").val().replace("-", "");
-            var fechai = $("#Fecha_Ingreso").val().replace("-", "");
-            var montoPorDia = data;
-            resta = fechaf.replace("-", "") - fechai.replace("-", "");
+            var fechaf = document.getElementById("Fecha_Salida").value;
+            var fechai = document.getElementById("Fecha_Ingreso").value;
 
-            return resta * data;
+            var fecha1 = new Date(fechai);
+            var fecha2 = new Date(fechaf);
+            var resta1 = fecha2.getTime() - fecha1.getTime();
+            var resta2 = Math.round(resta1 / (1000 * 60 * 60 * 24))
+            return resta2 * data;
         }
+
+        //function generaMonto(data) {
+        //    var fechaf = $("#Fecha_Salida").val().replace("-", "");
+        //    var fechai = $("#Fecha_Ingreso").val().replace("-", "");
+        //    var montoPorDia = data;
+        //    resta = fechaf.replace("-", "") - fechai.replace("-", "");
+
+        //    return resta * data;
+        //}
 
     </script>
 }
