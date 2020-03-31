@@ -76,7 +76,7 @@ namespace Finalprog02.Controllers
         public ActionResult Create()
         {
             ViewBag.ID_Habitacion = new SelectList(db.Habitaciones, "ID_Habitacion", "Num_Habitacion");
-            ViewBag.ID_Paciente = new SelectList(db.Pacientes, "ID_Paciente", "Nombre_Paciente");
+            ViewBag.ID_Paciente = new SelectList(db.Pacientes, "ID_Paciente", "ID_Paciente");
             return View();
         }
 
