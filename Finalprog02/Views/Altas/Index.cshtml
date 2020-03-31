@@ -6,12 +6,10 @@
 
 <br />
 <br />
-<br />
-
 
 <p>
     <a href="@Url.Action("Create", "Altas")" class="btn btn-success">Crear uno nuevo</a>
-    <a href="@Url.Action("imprimir", "Altas")" class="btn btn-danger">Convertir a PDF</a>
+    <a href="@Url.Action("imprimir", "Altas")" class="btn btn-danger">PDF</a>
 </p>
 <p>
     @using (Html.BeginForm("Index", "Altas", FormMethod.Post))

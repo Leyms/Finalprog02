@@ -3,16 +3,12 @@
 @{
     ViewBag.Title = "Index";
 }
-
-
 <br />
 <br />
-<br />
-
 
 <p>
     <a href="@Url.Action("Create", "Ingresos")" class="btn btn-success">Crear uno nuevo</a>
-    <a href="@Url.Action("imprimir", "Ingresos")" class="btn btn-danger">Convertir a PDF</a>
+    <a href="@Url.Action("imprimir", "Ingresos")" class="btn btn-danger">PDF</a>
 </p>
 <p>
     @using (Html.BeginForm("Index", "Ingresos", FormMethod.Post))

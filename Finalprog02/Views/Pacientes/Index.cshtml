@@ -14,21 +14,23 @@
 <p>
     @using (Html.BeginForm("Index", "Pacientes", FormMethod.Post))
     {
-        <div style="margin: 0 auto;">
-            <h5>Busquedas</h5>
-            <div class="row">
-                @Html.TextBox("busqueda", "", new { @class = "form-control mb-2", placeholder = "Buscar" })
-                <select name="select" class="form-control mb-2">
-                    <option value="">Elige una opcion</option>
-                    <option value="Nombre_Paciente">Nombre</option>
-                    <option value="Cedula_Paciente">Cedula</option>
-                    <option value="Asegurado">Asegurado</option>
-                </select>
-                <div class="col-2">
-                    <button type="submit" class="btn btn-success">✔️</button>
-                </div>
+    <div style="margin: 0 auto;">
+        <h5>Busquedas</h5>
+
+        <div class="row">
+            @Html.TextBox("busqueda", "", new { @class = "form-control mb-2", placeholder = "Buscar" })
+            <select name="select" class="form-control mb-2">
+                <option value="">Elige una opcion</option>
+                <option value="Nombre_Paciente">Nombre</option>
+                <option value="Cedula_Paciente">Cedula</option>
+                <option value="Asegurado">Asegurado</option>
+            </select>
+            <div class="col-2">
+                <button type="submit" class="btn btn-success">✔️</button>
             </div>
         </div>
+        <h6>Asegurado (Si - No)</h6>
+    </div>
     }
 </p>
 <br />
