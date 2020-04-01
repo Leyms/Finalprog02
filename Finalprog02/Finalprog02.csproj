@@ -172,6 +172,8 @@
     <Content Include="imgfinall\consulta.jpg" />
     <Content Include="imgfinall\consultanew.png" />
     <Content Include="imgfinall\doctores.jpg" />
+    <Content Include="imgfinall\filtroalta.gif" />
+    <Content Include="imgfinall\filtroalta1.gif" />
     <Content Include="imgfinall\fondo1.jpeg" />
     <Content Include="imgfinall\fondo2.png" />
     <Content Include="imgfinall\fondo3.jpg" />

@@ -10,6 +10,10 @@
 <p>
     <a href="@Url.Action("Create", "Altas")" class="btn btn-success">Crear uno nuevo</a>
     <a href="@Url.Action("imprimir", "Altas")" class="btn btn-danger">PDF</a>
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModalCenter">
+        Cálculos
+    </button>
+    @*<button name="PressBoton" value="Asegurado" class="btn btn-info">▼▼▼</button>*@
 </p>
 <p>
     @using (Html.BeginForm("Index", "Altas", FormMethod.Post))
@@ -79,11 +83,84 @@
                 @Html.DisplayFor(modelItem => item.Monto)
             </td>
             @*<td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID_Altas }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID_Altas }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID_Altas })
-            </td>*@
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID_Altas }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID_Altas }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID_Altas })
+                </td>*@
         </tr>
     }
 
 </table>
+
+
+<!-- Button trigger modal -->
+@*<button name="PressBoton" value="listacompleta" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    Mostrar
+</button>*@
+@*<div>
+    <button name="PressBoton" value="listacompleta" class="btn btn-info">Mostrar✔️</button>
+</div>*@
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="row">
+                    <h1 class="modal-title" id="exampleModalCenterTitle" img src="~/imgfinall/filtroalta.gif">Resultados de filtros</h1>
+                    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                    <img src="~/imgfinall/filtroalta1.gif" width="50" height="50">
+                </div>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <br />
+                    <div id="resultados">
+                        <div class="row">
+                            <div class="col card" style="border-color:aliceblue">
+                                <div class="card-body" style="background-color:azure">
+                                    <h4 class="card-title">Conteo</h4>
+                                    <p class="card-text">Resultado: @ViewBag.conteo</p>
+                                </div>
+                            </div>
+                            <div class="col card" style="border-color:aliceblue">
+                                <div class="card-body" style="background-color:#b3ecec">
+                                    <h4 class="card-title">Promedio</h4>
+                                    <p class="card-text">Resultado: @ViewBag.media</p>
+                                </div>
+                            </div>
+                            <div class="col card" style="border-color:aliceblue">
+                                <div class="card-body" style="background-color:azure">
+                                    <h4 class="card-title">Suma</h4>
+                                    <p class="card-text">Resultado: @ViewBag.total</p>
+                                </div>
+                            </div>
+                            <div class="col card" style="border-color:aliceblue">
+                                <div class="card-body" style="background-color:#b3ecec">
+                                    <h4 class="card-title">Maximo</h4>
+                                    <p class="card-text">Resultado: @ViewBag.max</p>
+                                </div>
+                            </div>
+                            <div class="col card" style="border-color:aliceblue">
+                                <div class="card-body"style="background-color:azure">
+                                    <h4 class="card-title">Minimo</h4>
+                                    <p class="card-text">Resultado: @ViewBag.min</p>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

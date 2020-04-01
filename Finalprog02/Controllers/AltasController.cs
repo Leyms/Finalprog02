@@ -28,7 +28,7 @@ namespace Finalprog02.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(string busqueda, string select)
+        public ActionResult Index(string busqueda, string select, string PressBoton)
         {
             if (busqueda == string.Empty)
             {
@@ -45,20 +45,46 @@ namespace Finalprog02.Controllers
             else if (select == "Paciente")
             {
                 var altas = db.Altas.Include(c => c.Ingresos).Where(a => a.Nombre_Paciente == busqueda);
-                return View(altas.ToList());
+               
                 //var abc = from a in db.Altas
                 //          where a.Nombre_Paciente == busqueda
                 //          select a;
 
                 //return View(abc);
+                ViewBag.total = altas.Sum(a => a.Monto);
+                ViewBag.conteo = altas.Count();
+                ViewBag.min = altas.Min(a => a.Monto);
+                ViewBag.max = altas.Max(a => a.Monto);
+                ViewBag.media = altas.Average(a => a.Monto);
+                return View(altas.ToList());
             }
             else if (select == "Fecha")
             {
                 var altas = db.Altas.Include(c => c.Ingresos).Where(a => a.Fecha_Salida == busqueda);
+               
+
+                ViewBag.total = altas.Sum(a => a.Monto);
+                ViewBag.conteo = altas.Count();
+                ViewBag.min = altas.Min(a => a.Monto);
+                ViewBag.max = altas.Max(a => a.Monto);
+                ViewBag.media = altas.Average(a => a.Monto);
                 return View(altas.ToList());
-                //var citas = db.Citas.Include(c => c.Medicos).Include(c => c.Pacientes).Where(a => a.Fecha_Cita == busqueda); ;
-                //return View(citas.ToList());
             }
+            //else if (PressBoton == "listacompleta")
+            //{
+            //    var altas = from a in db.Altas
+            //              where a.Monto.Equals(true) 
+            //              select a;
+
+            //    ViewBag.total = altas.Sum(a => a.Monto);
+            //    ViewBag.conteo = altas.Count();
+            //    ViewBag.min = altas.Min(a => a.Monto);
+            //    ViewBag.max = altas.Max(a => a.Monto);
+            //    ViewBag.media = altas.Average(a => a.Monto);
+
+            //    return View(altas);
+            //}
+            
 
             return View(db.Altas.ToList());
 
