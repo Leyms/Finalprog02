@@ -8,14 +8,15 @@
 <br />
 
 <p>
-    <a href="@Url.Action("Create", "Altas")" class="btn btn-success">Crear uno nuevo</a>
+    <a href="@Url.Action("Create", "Altas")" class="btn btn-success">Crear Nuevo</a>
     <a href="@Url.Action("imprimir", "Altas")" class="btn btn-danger">PDF</a>
     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModalCenter">
         Cálculos
     </button>
+    <a href="/Altas/Create" class="btn btn-warning">Atrás</a>
     @*<button name="PressBoton" value="Asegurado" class="btn btn-info">▼▼▼</button>*@
 </p>
-<p>
+<div>
     @using (Html.BeginForm("Index", "Altas", FormMethod.Post))
     {
 
@@ -36,7 +37,9 @@
             </div>
         </div>
     }
-</p>
+</div>
+    
+
 <br />
 <table class="table table-striped">
     <tr>
@@ -97,9 +100,7 @@
 @*<button name="PressBoton" value="listacompleta" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
     Mostrar
 </button>*@
-@*<div>
-    <button name="PressBoton" value="listacompleta" class="btn btn-info">Mostrar✔️</button>
-</div>*@
+
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

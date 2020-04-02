@@ -7,8 +7,9 @@
 <br />
 
 <p>
-    <a href="@Url.Action("Create", "Ingresos")" class="btn btn-success">Crear uno nuevo</a>
+    <a href="@Url.Action("Create", "Ingresos")" class="btn btn-success">Crear Nuevo</a>
     <a href="@Url.Action("imprimir", "Ingresos")" class="btn btn-danger">PDF</a>
+    <a href="/Ingresos/Create" class="btn btn-warning">Atrás</a>
 </p>
 <p>
     @using (Html.BeginForm("Index", "Ingresos", FormMethod.Post))

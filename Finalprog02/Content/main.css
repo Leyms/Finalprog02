@@ -17,4 +17,7 @@ a:hover {
         text-decoration: none;
 }
 
-
+.my-flex {
+    display: flex !important;
+    justify-content: center !important;
+}

@@ -18,6 +18,10 @@
     white-space: normal;
 }
 
+my-flex {
+    display: flex !important;
+    justify-content: center !important;
+}
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
