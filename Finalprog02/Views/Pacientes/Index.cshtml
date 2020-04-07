@@ -9,7 +9,8 @@
 
 <p>
     <a href="@Url.Action("Create", "Pacientes")" class="btn btn-success">Crear Nuevo</a>
-    <a href="@Url.Action("imprimir", "Pacientes")" class="btn btn-danger">PDF</a>
+    @*<a href="@Url.Action("imprimir", "Pacientes")" class="btn btn-danger">PDF</a>*@
+    <button onclick="funcionimprimir()" class="btn btn-danger">PDF</button>
     <a href="/Pacientes/Create" class="btn btn-warning">Atrás</a>
 </p>
 <p>
@@ -40,49 +41,51 @@
     }
 </p>
 <br />
+<div id="idimpresion">
+    <table class="table table-striped" id="idimpresion">
+        <h4>Listado de Pacientes</h4>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre_Paciente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cedula_Paciente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Asegurado)
+            </th>
+            <th></th>
+        </tr>
 
-<table class="table table-striped">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nombre_Paciente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cedula_Paciente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Asegurado)
-        </th>
-        <th></th>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre_Paciente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cedula_Paciente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Asegurado)
+                </td>
+                @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID_Paciente }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID_Paciente }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID_Paciente })
+                    </td>*@
+                <td class="btn btn-primary myBtn">
+                    @Html.ActionLink("Editar", "Edit", new { id = item.ID_Paciente })
+                </td>
+                <td class="btn btn-danger myBtn">
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.ID_Paciente })
+                </td>
+                <td class="btn btn-success myBtn">
+                    @Html.ActionLink("Detalles", "Details", new { id = item.ID_Paciente })
+                </td>
+            </tr>
 
-    @foreach (var item in Model)
-    {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre_Paciente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cedula_Paciente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Asegurado)
-        </td>
-        @*<td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.ID_Paciente }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ID_Paciente }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ID_Paciente })
-        </td>*@
-        <td class="btn btn-primary myBtn">
-            @Html.ActionLink("Editar", "Edit", new { id = item.ID_Paciente })
-        </td>
-        <td class="btn btn-danger myBtn">
-            @Html.ActionLink("Eliminar", "Delete", new { id = item.ID_Paciente })
-        </td>
-        <td class="btn btn-success myBtn">
-            @Html.ActionLink("Detalles", "Details", new { id = item.ID_Paciente })
-        </td>
-    </tr>
-       
-    }
+        }
 
-</table>
+    </table>
+</div>

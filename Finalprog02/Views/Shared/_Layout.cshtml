@@ -16,7 +16,7 @@
                     <img src="~/imgfinall/logoCorazonrojo.png" width="50" height="50" class="d-inline-block align-top" alt="">
                     CENTRO MEDICO DOMINICANO
                 </a>
-            </nav> 
+            </nav>
         </div>
     </div>
     <div class="container body-content">
@@ -30,5 +30,22 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+
 </body>
 </html>
+
+<script src="~/Content/html2pdf.bundle.min.js"></script>
+<script>
+    function funcionimprimir() {
+        var element = document.getElementById('idimpresion');
+        var opt = {
+            margin: 1,
+            filename: 'Docs.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+        };
+
+        html2pdf(element, opt);
+    }</script>
