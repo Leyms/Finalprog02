@@ -51,9 +51,10 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <div>
+        <a href="/Medicos/Index" class="btn btn-warning">Volver a la Lista</a>
+        @*@Html.ActionLink("Back to List", "Index")*@
+    </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

@@ -6,7 +6,7 @@
 <br />
 <br />
 <br />
-<h2>Detaller</h2>
+<h2>Detalles</h2>
 
 <div>
     <hr />
@@ -38,6 +38,10 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Medico }) |
-    @Html.ActionLink("Back to List", "Index")
+     <div class="btn btn-primary myBtn">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Medico })
+    </div>
+    <a href="/Medicos/Index" class="btn btn-warning">Volver a la Lista</a>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.ID_Medico }) |*@
+    @*@Html.ActionLink("Back to List", "Index")*@
 </p>
