@@ -120,6 +120,16 @@
                 $("#Fecha_Salida").val();
             });
 
+            const { log } = console;
+            const MostrarMonto = (data) => {
+                var iniciofecha = document.getElementById("Fecha_Ingreso").value;
+                var finfecha = document.getElementById("Fecha_Salida").value;                
+                var fechainicial = new Date(iniciofecha);
+                var fechasegunda = new Date(finfecha);
+                var primeraresta = fechasegunda.getTime() - fechainicial.getTime();
+                var restaresult = Math.round(primeraresta / (1000 * 60 * 60 * 24));
+                return restaresult * data;
+            }
             $("#ID_Ingreso").change(()=> {
                 var url = "@Url.Action("Monto", "Altas")";
                 var InfoPac = $("#ID_Ingreso").val();
@@ -135,16 +145,7 @@
             }
         })
 
-        const { log } = console;
-        const MostrarMonto = (data) => {
-            var finfecha = document.getElementById("Fecha_Salida").value;
-            var iniciofecha = document.getElementById("Fecha_Ingreso").value;
-            var fechainicial = new Date(iniciofecha);
-            var fechasegunda = new Date(finfecha);
-            var primeraresta = fechasegunda.getTime() - fechainicial.getTime();
-            var restaresult = Math.round(primeraresta / (1000 * 60 * 60 * 24));
-            return restaresult * data;
-        }
+       
 
     </script>
 }
