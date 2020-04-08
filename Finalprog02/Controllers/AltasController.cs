@@ -193,45 +193,45 @@ namespace Finalprog02.Controllers
 
         [HttpPost]
 
-        public JsonResult Nombre(int clavePaciente)
+        public JsonResult NombresPacientes(int InfoPac)
         {
-            var duplicado = (from i in db.Ingresos
+            var InfoGeneral = (from i in db.Ingresos
                              join p in db.Pacientes
                              on i.ID_Paciente equals p.ID_Paciente
-                             where i.ID_Ingresos == clavePaciente
+                             where i.ID_Ingresos == InfoPac
                              select p.Nombre_Paciente).ToList();
-            return Json(duplicado);
+            return Json(InfoGeneral);
         }
 
-        public JsonResult Monto(int clavePaciente)
+        public JsonResult Monto(int InfoPac)
         {
 
-            var duplicado = (from i in db.Ingresos
+            var InfoGeneral = (from i in db.Ingresos
                              join h in db.Habitaciones
                              on i.ID_Habitacion equals h.ID_Habitacion
-                             where i.ID_Ingresos == clavePaciente
+                             where i.ID_Ingresos == InfoPac
                              select h.PrecioDia_Habitacion).ToList();
-            return Json(duplicado);
+            return Json(InfoGeneral);
         }
 
-        public JsonResult FechaIngreso(int clavePaciente)
+        public JsonResult FechaIngresado(int InfoPac)
         {
 
-            var duplicado = (from i in db.Ingresos
-                             where i.ID_Ingresos == clavePaciente
+            var InfoGeneral = (from i in db.Ingresos
+                             where i.ID_Ingresos == InfoPac
                              select i.Fecha_Ingreso).ToList();
-            return Json(duplicado);
+            return Json(InfoGeneral);
         }
 
-        public JsonResult NumeroHabitacion(int clavePaciente)
+        public JsonResult NumHabitacion(int InfoPac)
         {
 
-            var duplicado = (from i in db.Ingresos
+            var InfoGeneral = (from i in db.Ingresos
                              join h in db.Habitaciones
                              on i.ID_Habitacion equals h.ID_Habitacion
-                             where i.ID_Ingresos == clavePaciente
+                             where i.ID_Ingresos == InfoPac
                              select h.Num_Habitacion).ToList();
-            return Json(duplicado);
+            return Json(InfoGeneral);
         }
     }
 }

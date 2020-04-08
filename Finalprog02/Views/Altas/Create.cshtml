@@ -13,7 +13,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-       
+
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -75,108 +75,79 @@
         </div>
     </div>
 }
-    <div class="row" style="margin-left:auto; margin-right:auto">
-        <a href="/Altas/Index" class="btn btn-success">Ir a la Lista</a>
-        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-        <a href="/Home/VstProcesos" class="btn btn-info">Volver a Procesos</a>
-    </div>
+<div class="row" style="margin-left:auto; margin-right:auto">
+    <a href="/Altas/Index" class="btn btn-success">Ir a la Lista</a>
+    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+    <a href="/Home/VstProcesos" class="btn btn-info">Volver a Procesos</a>
+</div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     <script>
-        $(function (){
-            $("#ID_Ingreso").change(function () {
-                var url = "@Url.Action("Nombre", "Altas")";
-                var clavePaciente = $("#ID_Ingreso").val();
-                var data = { clavePaciente: clavePaciente };
-                $.post(url, data).done(function (data) {
+        $(function () {
+            $("#ID_Ingreso").change(() => {
+                var url = "@Url.Action("NombresPacientes", "Altas")";
+                var InfoPac = $("#ID_Ingreso").val();
+                var data = { InfoPac: InfoPac };
+                $.post(url, data).done( (data) => {
                     $("#Nombre_Paciente").val(data);
-                }).fail(manejarErrorAjax).always(function (){
-
-                });
+                }).fail(errorController).always(() => {
+                    throw errorController;});
             });
-            $("#ID_Ingreso").change(function () {
-                var url = "@Url.Action("FechaIngreso", "Altas")";
-                var clavePaciente = $("#ID_Ingreso").val();
-                var data = { clavePaciente: clavePaciente };
-                $.post(url, data).done(function (data) {
+
+            $("#ID_Ingreso").change( ()=> {
+                var url = "@Url.Action("FechaIngresado", "Altas")";
+                var InfoPac = $("#ID_Ingreso").val();
+                var data = { InfoPac: InfoPac };
+                $.post(url, data).done((data) => {
                     $("#Fecha_Ingreso").val(data);
-                }).fail(manejarErrorAjax).always(function (){
-
-                });
+                }).fail(errorController).always( () => {
+                    throw errorController;});
              });
-            $("#ID_Ingreso").change(function () {
-                var url = "@Url.Action("NumeroHabitacion", "Altas")";
-                var clavePaciente = $("#ID_Ingreso").val();
-                var data = { clavePaciente: clavePaciente };
-                $.post(url, data).done(function (data) {
+
+           $("#ID_Ingreso").change( ()=> {
+               var url = "@Url.Action("NumHabitacion", "Altas")";
+               var InfoPac = $("#ID_Ingreso").val();
+               var data = { InfoPac: InfoPac };
+                $.post(url, data).done((data) => {
                     $("#Habitacion").val(data);
-                }).fail(manejarErrorAjax).always(function (){
-
-                });
+                }).fail(errorController).always( ()=> {
+                    throw errorController;});
              });
 
-            $("#ID_Ingreso").change(function () {
-
+            $("#ID_Ingreso").change(() => {
                 $("#Fecha_Salida").val();
-
             });
 
-            $("#ID_Ingreso").change(function () {
+            $("#ID_Ingreso").change(()=> {
                 var url = "@Url.Action("Monto", "Altas")";
-                var clavePaciente = $("#ID_Ingreso").val();
-                var data = { clavePaciente: clavePaciente };
-                $.post(url, data).done(function (data) {
-                    $("#Monto").val(generaMonto(data));
-                }).fail(manejarErrorAjax).always(function (){
-
-                });
-             });
-
-
-            function manejarErrorAjax(err) {
-                console.log(err.responseText);
+                var InfoPac = $("#ID_Ingreso").val();
+                var data = { InfoPac: InfoPac };
+                $.post(url, data).done((data) =>{
+                    $("#Monto").val(MostrarMonto(data));
+                }).fail(errorController).always(()=> {
+                    throw errorController;});
+            });
+                  
+            const errorController = (err) => {
+                log(err.responseText);
             }
         })
 
-   /*    function addZero(i) {
-            if (i < 10) {
-                i = '0' + i;
-            }
-            return i;
+        const { log } = console;
+        const MostrarMonto = (data) => {
+            var finfecha = document.getElementById("Fecha_Salida").value;
+            var iniciofecha = document.getElementById("Fecha_Ingreso").value;
+            var fechainicial = new Date(iniciofecha);
+            var fechasegunda = new Date(finfecha);
+            var primeraresta = fechasegunda.getTime() - fechainicial.getTime();
+            var restaresult = Math.round(primeraresta / (1000 * 60 * 60 * 24));
+            return restaresult * data;
         }
-
-        function hoyFecha() {
-            var hoy = new Date();
-            var dd = hoy.getDate();
-            var mm = hoy.getMonth() + 1;
-            var yyyy = hoy.getFullYear();
-
-            dd = addZero(dd);
-            mm = addZero(mm);
-
-            return yyyy + '-' + mm + '-' + dd;
-        }*/
-        console.log(generaMonto())
-        function generaMonto(data) {
-            var fechaf = document.getElementById("Fecha_Salida").value;
-            var fechai = document.getElementById("Fecha_Ingreso").value;
-
-            var fecha1 = new Date(fechai);
-            var fecha2 = new Date(fechaf);
-            var resta1 = fecha2.getTime() - fecha1.getTime();
-            var resta2 = Math.round(resta1 / (1000 * 60 * 60 * 24))
-            return resta2 * data;
-        }
-
-        //function generaMonto(data) {
-        //    var fechaf = $("#Fecha_Salida").val().replace("-", "");
-        //    var fechai = $("#Fecha_Ingreso").val().replace("-", "");
-        //    var montoPorDia = data;
-        //    resta = fechaf.replace("-", "") - fechai.replace("-", "");
-
-        //    return resta * data;
-        //}
 
     </script>
 }
+
+
+
